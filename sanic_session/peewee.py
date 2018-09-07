@@ -74,7 +74,7 @@ class PeeweeSessionInterface(BaseSessionInterface):
         try:
             _SessionStoreModel.delete().where(SessionStore.key==key)
         except:
-            print("Nothing to delete")
+            pass
 
     async def _set_value(self, key, data):
         _SessionStoreModel.get_or_create(key=key, value=data, expiry=self.expiry)
